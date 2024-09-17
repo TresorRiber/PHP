@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<?php
+$num1 = rand(1,10);
+$num2 = rand(1,10);
+$num3 = rand(1,10);
+echo ($num1 . "<br>") ;
+echo ($num2 . "<br>") ;
+echo ($num3 . "<br>") ;
+$mayor = max($num1, $num2, $num3);
+echo "El numero mayor es: $mayor!";
+?>
+
+</body>
+</html>

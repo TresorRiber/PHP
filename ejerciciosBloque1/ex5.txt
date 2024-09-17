@@ -1,0 +1,17 @@
+<?php
+$edad = 7;
+$acompañado = true;
+$altura = 112;
+echo "<p>Esta persona tiene " . $edad; 
+
+
+if ($edad > "10") {
+  echo " puede subirse";
+} elseif ($altura > "120") {
+  echo " puede subirse"; 
+} elseif ($acompañado == true && $edad > "6"){
+  echo " puede subirse por ir acompañado";
+} else {
+  echo " no puede subir";
+}
+?>

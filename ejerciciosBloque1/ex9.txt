@@ -1,0 +1,19 @@
+<?php
+$venta = 10000;
+$comision =0;
+
+  if($venta<10000){
+    $comision = "La comision es: " . $venta*0.05;
+    echo $comision;
+  }elseif($venta>=10000 || $venta<20000){
+  	$comision = "La comision es: " . $venta*0.08;
+    echo $comision;
+  }elseif($venta>=20000 || $venta<40000){
+  	$comision = "La comision es: " . $venta*0.10;
+    echo $comision;
+  }else{
+  	$comision = "La comision es: " . $venta*0.13;
+    echo $comision;
+  }
+  
+?>

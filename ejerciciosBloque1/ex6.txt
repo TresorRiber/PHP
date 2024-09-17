@@ -1,0 +1,13 @@
+<?php
+$potencia = 3;
+$res = 1;
+$cantidad = 100;
+
+for ($i=1;$res<$cantidad;$i++){
+	$res = pow($i, $potencia);
+    if($res<100){
+    	echo $i . "-" . $res . "<br>";
+    }
+}
+
+?>

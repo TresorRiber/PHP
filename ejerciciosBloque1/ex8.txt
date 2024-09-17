@@ -1,0 +1,18 @@
+<?php
+$base = random_int(5,20);
+$fila=0;
+
+if($base%2){
+$fila=2;
+}else{
+$fila=1;
+}
+
+while($fila < $base){
+	for($x=0; $x<$fila; $x++){
+    	echo "*";
+    	}
+        echo "<br>";
+        $fila = $fila +2;
+    }
+?>

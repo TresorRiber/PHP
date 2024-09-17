@@ -1,0 +1,24 @@
+<?php
+$total_compra=20;
+$tipo_compra="mascota";
+
+if($total_compra<19 && $tipo_compra=="mascotas"){
+	echo "No se puede enviar";
+}elseif($total_compra<19 && $tipo_compra=="ropa"){
+	$total_compra = $total_compra+9;
+	echo "Los gastos de envio son: 9 euros" . "<br>";
+}elseif($total_compra>=19 || $total_compra<=40){
+$total_compra = $total_compra+9;
+	echo "Los gastos de envio son 9 euros" . "<br>";
+}elseif($total_compra>80){
+	echo "Los gastos de envio son gratuitos" . "<br>";
+}
+if($tipo_compra=="mascota"){
+	$total_compra = $total_compra*1.10;
+    echo "Precio final: " . $total_compra;
+}else{
+	$total_compra = $total_compra*1.21;
+    echo "Precio final: " . $total_compra;
+}
+
+?>
