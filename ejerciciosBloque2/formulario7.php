@@ -17,8 +17,8 @@
             if (empty($_POST["nombre"])) {
               $nombreErr = "Requiere nombre";
             } else {
-              $nombre = test_input($_POST["nombre"]);
-              if(preg_match($patternNombre, $nombre)){
+              if(preg_match($patternNombre, $_POST["nombre"])){
+                $nombre = test_input($_POST["nombre"]);
                 $contadorError++;
               }else{
                 $nombreErr = "Nombre no valido";
@@ -29,8 +29,8 @@
             if (empty($_POST["email"])) {
               $emailErr = "Requiere email";
             } else {
-              $email = test_input($_POST["email"]);
-              if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+              if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+                $email = test_input($_POST["email"]);
                 $contadorError++;
               }else{
                 $emailErr = "E-mail no valido";
@@ -55,11 +55,11 @@
         ?>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
-        Nombre: <input type="text" name="nombre">
+        Nombre: <input type="text" name="nombre" value=" <?php echo $nombre; ?>">
         <span class="error">* <?php echo $nombreErr;?></span>
         <br><br>
         E-mail:
-        <input type="email" name="email">
+        <input type="email" name="email" value= "<?php echo $email; ?>">
         <span class="error">* <?php echo $emailErr;?></span>
         <br><br>
         Contraseña:
@@ -67,7 +67,7 @@
         <span class="error"><?php echo $contraseñaErr;?></span>
         <br><br>
         Repita contraseña:
-        <input type="text" name="repitacontra">
+        <input type="password" name="repitacontra">
         <span class="error"><?php echo $repitacontraErr;?></span>
         <br><br>
         <input type="submit" name="submit" value="Submit">
