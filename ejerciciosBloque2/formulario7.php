@@ -16,41 +16,38 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (empty($_POST["nombre"])) {
               $nombreErr = "Requiere nombre";
-              $contadorError++;
             } else {
               $nombre = test_input($_POST["nombre"]);
               if(preg_match($patternNombre, $nombre)){
-                
-              }else{
-                echo "Nombre no valido";
                 $contadorError++;
+              }else{
+                $nombreErr = "Nombre no valido";
+                
               }
             }
           
             if (empty($_POST["email"])) {
               $emailErr = "Requiere email";
-              $contadorError++;
             } else {
               $email = test_input($_POST["email"]);
               if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-                
-              }else{
-                echo "E-mail no valido";
                 $contadorError++;
+              }else{
+                $emailErr = "E-mail no valido";
+                
               }
             }
             
             if (empty($_POST["contraseña"]) && empty($_POST["repitacontra"])) {
               $contraseñaErr = "Requiere contraseña";
-              $contadorError++;
             } else {
               $contraseña = test_input($_POST["contraseña"]);
               $repitacontra = test_input($_POST["repitacontra"]);
               if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/', $contraseña) && $contraseña==$repitacontra) {
-
-            } else {
-                echo "La contraseña no es válida.";
                 $contadorError++;
+            } else {
+                $contraseñaErr = "La contraseña no es válida.";
+                
             }
           }
         }
@@ -77,7 +74,7 @@
         
         </form>
       <?php 
-        if($contadorError==0){
+        if($contadorError==3){
           echo "<br>"."Formulario correctamente completado";
         }
       ?>
