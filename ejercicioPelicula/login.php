@@ -5,12 +5,15 @@
     $password = "root";
     $dbname = "mydatabase";
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+     $conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
+    // if ($conn->connect_error) {
+    //     die("Connection failed: " . $conn->connect_error);
+    // }
+    // // Create database
+    // $sql = "CREATE DATABASE IF NOT EXISTS mydatabase";
+    // $conn->query($sql);
+        
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $nombre = $_POST["nombre"];
         $contrasena = $_POST["contrasena"];

@@ -9,6 +9,20 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) { 
     die("Connection failed: " . $conn->connect_error); 
 } 
+
+
+// sql to create table
+$sqltable = "CREATE TABLE IF NOT EXISTS peliculaUsuarios (
+    ISAN INT(11) NOT NULL,
+    nombre VARCHAR(30) NOT NULL,
+    puntuacion VARCHAR(30) NOT NULL,
+    ano INT(11),
+    nombre_pelicula VARCHAR(30),
+    PRIMARY KEY (ISAN),
+    CONSTRAINT peliculaUsuarios_ibfk_1 FOREIGN KEY (nombre) REFERENCES usuarios (nombre) ON UPDATE CASCADE ON DELETE CASCADE 
+)";
+$conn->query($sqltable);
+
 $nombre = $_SESSION['nombre'];
 $sql = "SELECT * FROM peliculaUsuarios WHERE nombre='$nombre'"; 
 $result = $conn->query($sql); 
